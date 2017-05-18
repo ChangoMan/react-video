@@ -9,7 +9,11 @@ class App extends Component {
         super(props);
         this.state = {
             videos: [],
-            selectedVideo: ''
+            selectedVideo: '',
+            playlists: {
+                kpop: 'PLgAWynvKDEDVaILn5viLCElGP0u0svWiS',
+                tswift: 'PLMEZyDHJojxNYSVgRCPt589DI5H7WT1ZK'
+            }
         };
     }
 
@@ -44,7 +48,7 @@ class App extends Component {
     componentDidMount() {
 
         // videoAPI.getVideos('PLgAWynvKDEDVaILn5viLCElGP0u0svWiS')
-        videoAPI.getVideos('PLMEZyDHJojxNYSVgRCPt589DI5H7WT1ZK')
+        videoAPI.getVideos(this.state.playlists.tswift)
         .then((videos) => {
             this.setState(function() {
                 return {
@@ -61,6 +65,18 @@ class App extends Component {
             return {
                 selectedVideo: this.state.videos[Math.floor(Math.random()*this.state.videos.length)]
             }
+        });
+    }
+
+    switchPlaylist = (playlist) => {
+        videoAPI.getVideos(this.state.playlists[playlist])
+        .then((videos) => {
+            this.setState(function() {
+                return {
+                    videos: videos
+                }
+            });
+            this.randomVideo();
         });
     }
 
@@ -86,7 +102,9 @@ class App extends Component {
 
         return (
             <div>
-                <button className="btn" onClick={this.randomVideo}>Random Video</button>
+                <div className="controls">
+                    <button className="btn" onClick={this.randomVideo}>Random Video</button> <button className="btn" onClick={this.switchPlaylist.bind(null, 'kpop')}>Kpop</button> <button className="btn" onClick={this.switchPlaylist.bind(null, 'tswift')}>Tswift</button>
+                </div>
                 <div className="video-wrapper">
                     <YouTube
                         videoId={this.state.selectedVideo}
