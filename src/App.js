@@ -42,7 +42,9 @@ class App extends Component {
     ],*/
 
     componentDidMount() {
-        videoAPI.getVideos('PLgAWynvKDEDVaILn5viLCElGP0u0svWiS')
+
+        // videoAPI.getVideos('PLgAWynvKDEDVaILn5viLCElGP0u0svWiS')
+        videoAPI.getVideos('PLMEZyDHJojxNYSVgRCPt589DI5H7WT1ZK')
         .then((videos) => {
             this.setState(function() {
                 return {
@@ -51,6 +53,7 @@ class App extends Component {
             });
             this.randomVideo();
         });
+
     }
 
     randomVideo = () => {
@@ -83,7 +86,7 @@ class App extends Component {
 
         return (
             <div>
-                <button className="btn" onClick={this.randomVideo}>New Video</button>
+                <button className="btn" onClick={this.randomVideo}>Random Video</button>
                 <div className="video-wrapper">
                     <YouTube
                         videoId={this.state.selectedVideo}
