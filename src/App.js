@@ -10,23 +10,23 @@ class App extends Component {
         super(props);
         this.state = {
             videos: [
-                'Z6FPJOgfCkc', // Galaxy Supernova
-                'QN6KVm5cRWw', // Shy Boy
-                'DRSRpXPZVdM', // Is It Poppin
-                'NPqtL1dtrlA', // Love Options
-                'Zy_sgB4EJB8', // Tell Me Tell Me
-                'BclmGVKdHII', // Gee
-                'nUDMw9f24kE', // UU
-                '6SwiSpudKWI', // Genie
-                'TGbwL8kSpEk', // Oh!
-                'kKS12iGFyEA', // Danger
-                'nQm_9nbY_7U', // Would You Like Some Tea?
-                'Qk52ypnGs68', // Number 9
-                'Y-FhDScM_2w', // Some
-                '8iY3wGoJfng', // Sunshine
-                'Fzr2Nv8NTEE', // Mr. Taxi
-                'Z8j_XEn9b_8', // Mr. Mr.
-                'K5H-GvnNz2Y', // Mr. Chu
+                // 'Z6FPJOgfCkc', // Galaxy Supernova
+                // 'QN6KVm5cRWw', // Shy Boy
+                // 'DRSRpXPZVdM', // Is It Poppin
+                // 'NPqtL1dtrlA', // Love Options
+                // 'Zy_sgB4EJB8', // Tell Me Tell Me
+                // 'BclmGVKdHII', // Gee
+                // 'nUDMw9f24kE', // UU
+                // '6SwiSpudKWI', // Genie
+                // 'TGbwL8kSpEk', // Oh!
+                // 'kKS12iGFyEA', // Danger
+                // 'nQm_9nbY_7U', // Would You Like Some Tea?
+                // 'Qk52ypnGs68', // Number 9
+                // 'Y-FhDScM_2w', // Some
+                // '8iY3wGoJfng', // Sunshine
+                // 'Fzr2Nv8NTEE', // Mr. Taxi
+                // 'Z8j_XEn9b_8', // Mr. Mr.
+                // 'K5H-GvnNz2Y', // Mr. Chu
                 // 'F7SFr9dJrw4', // Hush
                 'ouR4nn1G9r4', // Not Spring, Love
                 'p6XLNsJ9YrA', // Give it to me
