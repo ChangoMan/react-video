@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import YouTube from 'react-youtube';
-import _ from 'lodash';
 
 import videoAPI from './utils/videoAPI';
 
@@ -9,7 +8,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            videos: [
+            videos: [],
+            /*videos: [
                 'Z6FPJOgfCkc', // Galaxy Supernova
                 'QN6KVm5cRWw', // Shy Boy
                 'DRSRpXPZVdM', // Is It Poppin
@@ -35,26 +35,20 @@ class App extends Component {
                 'c3-pUNhYORw', // Paparazzi
                 'jG1cIlM1juw', // Flower Power
                 // '93GuC1dMkxc', // Beep Beep
-            ],
+            ],*/
             selectedVideo: ''
         };
     }
 
     componentDidMount() {
-        this.randomVideo();
-
         videoAPI.getVideos()
         .then((videos) => {
-            console.log(videos.items);
-
-            let cool = _.forEach(videos, function(video) {
-
-                console.log(video)
-
-                let me = _.get(video, video.snippet.resourceId.videoId);
-
+            this.setState(function() {
+                return {
+                    videos: videos
+                }
             });
-
+            this.randomVideo();
         });
     }
 
@@ -91,7 +85,7 @@ class App extends Component {
                 <button className="btn" onClick={this.randomVideo}>New Video</button>
                 <div className="video-wrapper">
                     <YouTube
-                        videoId="Nv5_uvyqI9s"
+                        videoId={this.state.selectedVideo}
                         opts={opts}
                         className="video-iframe"
                         onEnd={this.randomVideo}
