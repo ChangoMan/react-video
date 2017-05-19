@@ -37,3 +37,7 @@
     opacity: 0.6;
     cursor: pointer;
 }
+.btn--block {
+    display: block;
+    width: 100%;
+}

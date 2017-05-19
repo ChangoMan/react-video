@@ -9,6 +9,33 @@ class App extends Component {
         super(props);
         this.state = {
             videos: [],
+            customVideos: [
+                'Z6FPJOgfCkc', // Galaxy Supernova
+                'QN6KVm5cRWw', // Shy Boy
+                'DRSRpXPZVdM', // Is It Poppin
+                'NPqtL1dtrlA', // Love Options
+                'Zy_sgB4EJB8', // Tell Me Tell Me
+                'BclmGVKdHII', // Gee
+                'nUDMw9f24kE', // UU
+                '6SwiSpudKWI', // Genie
+                'TGbwL8kSpEk', // Oh!
+                'kKS12iGFyEA', // Danger
+                'nQm_9nbY_7U', // Would You Like Some Tea?
+                'Qk52ypnGs68', // Number 9
+                'Y-FhDScM_2w', // Some
+                '8iY3wGoJfng', // Sunshine
+                'Fzr2Nv8NTEE', // Mr. Taxi
+                'Z8j_XEn9b_8', // Mr. Mr.
+                'K5H-GvnNz2Y', // Mr. Chu
+                // 'F7SFr9dJrw4', // Hush
+                'ouR4nn1G9r4', // Not Spring, Love
+                'p6XLNsJ9YrA', // Give it to me
+                'PfPWxK1BQFI', // Hoot
+                // 'YQl5SLEYGLA', // NoNoNo
+                'c3-pUNhYORw', // Paparazzi
+                'jG1cIlM1juw', // Flower Power
+                // '93GuC1dMkxc', // Beep Beep
+            ],
             selectedVideo: '',
             playlists: {
                 kpop: 'PLgAWynvKDEDVaILn5viLCElGP0u0svWiS',
@@ -16,34 +43,6 @@ class App extends Component {
             }
         };
     }
-
-    /*videos: [
-        'Z6FPJOgfCkc', // Galaxy Supernova
-        'QN6KVm5cRWw', // Shy Boy
-        'DRSRpXPZVdM', // Is It Poppin
-        'NPqtL1dtrlA', // Love Options
-        'Zy_sgB4EJB8', // Tell Me Tell Me
-        'BclmGVKdHII', // Gee
-        'nUDMw9f24kE', // UU
-        '6SwiSpudKWI', // Genie
-        'TGbwL8kSpEk', // Oh!
-        'kKS12iGFyEA', // Danger
-        'nQm_9nbY_7U', // Would You Like Some Tea?
-        'Qk52ypnGs68', // Number 9
-        'Y-FhDScM_2w', // Some
-        '8iY3wGoJfng', // Sunshine
-        'Fzr2Nv8NTEE', // Mr. Taxi
-        'Z8j_XEn9b_8', // Mr. Mr.
-        'K5H-GvnNz2Y', // Mr. Chu
-        // 'F7SFr9dJrw4', // Hush
-        'ouR4nn1G9r4', // Not Spring, Love
-        'p6XLNsJ9YrA', // Give it to me
-        'PfPWxK1BQFI', // Hoot
-        // 'YQl5SLEYGLA', // NoNoNo
-        'c3-pUNhYORw', // Paparazzi
-        'jG1cIlM1juw', // Flower Power
-        // '93GuC1dMkxc', // Beep Beep
-    ],*/
 
     componentDidMount() {
 
@@ -69,15 +68,26 @@ class App extends Component {
     }
 
     switchPlaylist = (playlist) => {
-        videoAPI.getVideos(this.state.playlists[playlist])
-        .then((videos) => {
+
+        if (playlist === 'custom') {
             this.setState(function() {
                 return {
-                    videos: videos
+                    videos: this.state.customVideos,
+                    selectedVideo: this.state.customVideos[Math.floor(Math.random()*this.state.videos.length)]
                 }
             });
-            this.randomVideo();
-        });
+        } else {
+            videoAPI.getVideos(this.state.playlists[playlist])
+            .then((videos) => {
+                this.setState(function() {
+                    return {
+                        videos: videos
+                    }
+                });
+                this.randomVideo();
+            });
+        }
+
     }
 
     _onError = (event) => {
@@ -103,7 +113,10 @@ class App extends Component {
         return (
             <div>
                 <div className="controls">
-                    <button className="btn" onClick={this.randomVideo}>Random Video</button> <button className="btn" onClick={this.switchPlaylist.bind(null, 'kpop')}>Kpop</button> <button className="btn" onClick={this.switchPlaylist.bind(null, 'tswift')}>Tswift</button>
+                    <p><button className="btn btn--block" onClick={this.randomVideo}>Random Video</button></p>
+                    <p><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'kpop')}>Kpop</button></p>
+                    <p><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'tswift')}>Tswift</button></p>
+                    <p><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'custom')}>Custom</button></p>
                 </div>
                 <div className="video-wrapper">
                     <YouTube
