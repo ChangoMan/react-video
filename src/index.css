@@ -1,3 +1,8 @@
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 .video-wrapper {
     position: fixed;
     z-index: 0;
@@ -22,10 +27,59 @@
     overflow: hidden;
 }
 
-.controls {
+.controls-wrap {
+    position: absolute;
+    z-index: 100;
+    width: 320px;
+    height: 320px;
+    padding: 30px;
+    background: #fdfdf8;
+    color: #373a47;
+    -webkit-transform: translate3d(-320px,-320px,0);
+    transform: translate3d(-320px,-320px,0);
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+.show-controls .controls-wrap {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.close-btn {
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    overflow: hidden;
+    text-indent: 1em;
+    border: none;
+    background: transparent;
+    color: transparent;
+}
+.close-btn::before,
+.close-btn::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: #b8b7ad;
+}
+.close-btn::before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.close-btn::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.controls-btn {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 10;
 }
 

@@ -40,7 +40,8 @@ class App extends Component {
             playlists: {
                 kpop: 'PLgAWynvKDEDVaILn5viLCElGP0u0svWiS',
                 tswift: 'PLMEZyDHJojxNYSVgRCPt589DI5H7WT1ZK'
-            }
+            },
+            controlsOpen: false
         };
     }
 
@@ -90,6 +91,14 @@ class App extends Component {
 
     }
 
+    toggleControls = () => {
+        this.setState(function(prev) {
+            return {
+                controlsOpen: !this.state.controlsOpen
+            }
+        });
+    }
+
     _onError = (event) => {
         console.log(event.target.getVideoData());
         this.setState(function() {
@@ -111,12 +120,16 @@ class App extends Component {
         };
 
         return (
-            <div>
-                <div className="controls">
-                    <p><button className="btn btn--block" onClick={this.randomVideo}>Random Video</button></p>
-                    <p><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'kpop')}>Kpop</button></p>
-                    <p><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'tswift')}>Tswift</button></p>
-                    <p><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'custom')}>Custom</button></p>
+            <div className={this.state.controlsOpen ? 'show-controls' : ''}>
+                <div className="controls-wrap">
+                    <button className="close-btn" onClick={this.toggleControls}>Close</button>
+                    <button className="btn btn--block" onClick={this.randomVideo}>Random Video</button>
+                    <button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'kpop')}>Kpop</button>
+                    <button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'tswift')}>Tswift</button>
+                    <button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'custom')}>Custom</button>
+                </div>
+                <div className="controls-btn">
+                    <button onClick={this.toggleControls}>Click</button>
                 </div>
                 <div className="video-wrapper">
                     <YouTube
