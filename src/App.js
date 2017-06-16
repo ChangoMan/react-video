@@ -48,7 +48,7 @@ class App extends Component {
     componentDidMount() {
 
         // videoAPI.getVideos('PLgAWynvKDEDVaILn5viLCElGP0u0svWiS')
-        videoAPI.getVideos(this.state.playlists.tswift)
+        videoAPI.getVideos(this.state.playlists.kpop)
         .then((videos) => {
             this.setState(function() {
                 return {
@@ -123,13 +123,15 @@ class App extends Component {
             <div className={this.state.controlsOpen ? 'show-controls' : ''}>
                 <div className="controls-wrap">
                     <button className="close-btn" onClick={this.toggleControls}>Close</button>
-                    <button className="btn btn--block" onClick={this.randomVideo}>Random Video</button>
-                    <button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'kpop')}>Kpop</button>
-                    <button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'tswift')}>Tswift</button>
-                    <button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'custom')}>Custom</button>
+                    <p><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'kpop')}>Kpop</button></p>
+                    <p><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'tswift')}>Tswift</button></p>
+                    <p className="u-bottom0"><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'custom')}>Custom</button></p>
                 </div>
                 <div className="controls-btn">
-                    <button onClick={this.toggleControls}>Click</button>
+                    <button className="btn" onClick={this.toggleControls}>Playlists</button>
+                </div>
+                <div className="controls-btn controls-btn--right">
+                    <button className="btn" onClick={this.randomVideo}>Random Video</button>
                 </div>
                 <div className="video-wrapper">
                     <YouTube
