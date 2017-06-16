@@ -27,14 +27,15 @@ class App extends Component {
                 'Fzr2Nv8NTEE', // Mr. Taxi
                 'Z8j_XEn9b_8', // Mr. Mr.
                 'K5H-GvnNz2Y', // Mr. Chu
-                // 'F7SFr9dJrw4', // Hush
+                'YXZ19CvCmto', // Hush
                 'ouR4nn1G9r4', // Not Spring, Love
                 'p6XLNsJ9YrA', // Give it to me
                 'PfPWxK1BQFI', // Hoot
-                // 'YQl5SLEYGLA', // NoNoNo
+                'hspqQuuuGIw', // NoNoNo
                 'c3-pUNhYORw', // Paparazzi
                 'jG1cIlM1juw', // Flower Power
-                // '93GuC1dMkxc', // Beep Beep
+                'JCscyDno4yA', // Beep Beep
+                'bAicySTsvLo' // Berry Good Don't believe
             ],
             selectedVideo: '',
             playlists: {
