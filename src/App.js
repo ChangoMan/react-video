@@ -129,7 +129,7 @@ class App extends Component {
                     <button className="close-btn" onClick={this.toggleControls}>Close</button>
                     <p><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'kpop')}>Kpop</button></p>
                     <p><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'tswift')}>Tswift</button></p>
-                    <p className="u-bottom0"><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'custom')}>Custom</button></p>
+                    <p className="u-bottom0"><button className="btn btn--block" onClick={this.switchPlaylist.bind(null, 'custom')}>Custom Playlist</button></p>
                 </div>
                 <div className="controls-btn">
                     <button className="btn" onClick={this.toggleControls}>Playlists</button>
