@@ -35,7 +35,10 @@ class App extends Component {
                 'c3-pUNhYORw', // Paparazzi
                 'jG1cIlM1juw', // Flower Power
                 'JCscyDno4yA', // Beep Beep
-                'bAicySTsvLo' // Berry Good Don't believe
+                'bAicySTsvLo', // Berry Good Don't believe
+                'yuCbJykB32M', // Yoona Stonewall Walkway
+                '1pBgMBBsv4k', // Heart Attack
+                'sno_genwMz8', // Good Luck
             ],
             selectedVideo: '',
             playlists: {
